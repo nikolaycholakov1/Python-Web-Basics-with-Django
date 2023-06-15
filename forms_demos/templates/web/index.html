@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if name %}
+    <h1>Hello {{ name }}</h1>
+{% else %}
+    <h1>Please enter your name</h1>
+{% endif %}
+
+{#<p>CSRF TOKEN: {{ csrf_token }}</p>#}
+
+<form action="{% url 'index' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+    {#<input type="submit" value="Submit form">#}
+</form>
+</body>
+</html>
